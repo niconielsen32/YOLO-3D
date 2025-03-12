@@ -666,14 +666,14 @@ class BirdEyeView:
                 continue
             
             # Draw tick mark - thicker for whole meters
-            thickness = 2 if dist.is_integer() else 1
+            thickness = 2 if float(dist).is_integer() else 1
             cv2.line(self.bev_image, 
                     (self.origin_x - 5, y), 
                     (self.origin_x + 5, y), 
                     (120, 120, 120), thickness)
             
             # Only show text for whole meters
-            if dist.is_integer():
+            if float(dist).is_integer():
                 cv2.putText(self.bev_image, f"{int(dist)}m", 
                            (self.origin_x + 10, y + 4), 
                            cv2.FONT_HERSHEY_SIMPLEX, 0.4, (180, 180, 180), 1)
