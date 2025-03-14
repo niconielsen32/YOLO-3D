@@ -659,7 +659,8 @@ class BirdEyeView:
         
         # Draw distance markers specifically for 1-5 meter range
         # Use fixed steps of 1 meter with intermediate markers at 0.5 meters
-        for dist in [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]:
+        
+        for dist in [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]: #fix for BEV object has no attribute
             y = self.origin_y - int(dist * self.scale)
             
             if y < 20:  # Skip if too close to top
